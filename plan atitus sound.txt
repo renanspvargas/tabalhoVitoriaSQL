@@ -1,0 +1,71 @@
+Requisitos
+	- ver a lista de todas as musicas
+	- pesquisar musica por nome
+	- criar playslist
+	- adicionar musica a playlist
+	- remover musica da playlist
+	- editar detalhes da playlist
+	- curtir musica
+	- descurtir musica
+	- criar conta
+	- deletar conta
+	- adicionar dados ao perfil
+	- editar dados do perfil
+
+
+
+
+Tabelas
+	TAB_Users
+	- id (uuid PK)
+	- email (String unique not null)
+	- password (string not null)	
+	- role (enum not null)
+
+	TAB_UserProfile
+	- id (uuid PK)
+	- id_user (uuid FK)
+	- name (string not null)
+	- birthday_date (date)
+	- picture_url (string)
+
+	TAB_Artists
+	- id (uuid pk)
+	- name (string not null)
+	- image_url (string)
+
+	TAB_Albums
+	- id (uuid pk)
+	- id_artist (uuid FK)
+	- name (string not null)
+	- publication_date (date not null)
+	- image_url (string)
+
+	TAB_SongCategories
+	- id (uuid PK)
+	- name (string not null)	
+
+	TAB_Songs
+	- id (uuid PK)
+	- id_artist (uuid FK)
+	- id_album (uuid FK)
+	- name (string not null)
+	- image_url (string)
+	- song_url (string not null)
+
+	?TAB_Song_Category?
+	- id (uuid PK)
+	- id_song (uuid FK)
+	- id_category (uuid FK)
+
+	TAB_Playlists
+	- id (uuid PK)
+	- id_user (uuid FK)
+	- name (string not null)
+	- description (string)
+	- image_url (string)
+	
+	?TAB_Song_Playlist???
+	- id (uuid pk)
+	- id_song (uuid FK)
+	- id_playlist (uuid FK)
